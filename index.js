@@ -12,5 +12,5 @@ app.get('/',(req,res)=>res.send("Hello World"));
 connectDB();
 var routes=require('./routes/routes');
 routes(app)
-app.listen(5000,()=>console.log('Node running at 5000'))
+app.listen(port,()=>console.log('Node running at 5000'))
 app.use(cors());
