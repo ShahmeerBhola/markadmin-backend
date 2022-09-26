@@ -7,8 +7,8 @@ require('dotenv').config();
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json())
 app.use(cors());
-connectDB();
 app.get('/',(req,res)=>res.send("Hello World"));
+connectDB();
 var routes=require('./routes/routes');
 routes(app)
 app.listen(5000,()=>console.log('Node running at 5000'))

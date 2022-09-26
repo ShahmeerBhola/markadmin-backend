@@ -1,5 +1,4 @@
 "use-strict"
-
 module.exports=function (app) {
     var abc=require('../controller/controller')
     app.route('/newProduct').post(abc.newProduct);
