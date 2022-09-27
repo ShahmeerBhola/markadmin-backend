@@ -27,6 +27,15 @@ exports.getProduct=async(req,res)=>{
         res.status(500).send(err)
     }
 }
+exports.getProductById=async(req,res)=>{
+    try{
+      const product= await productSchema.findById(req.params.id)
+       res.status(200).json(product);
+    }
+    catch(err){
+        res.status(500).send(err)
+    }
+}
 exports.deleteProduct=async(req,res)=>{
     try{
        const product= await productSchema.findByIdAndRemove(req.params.id)
