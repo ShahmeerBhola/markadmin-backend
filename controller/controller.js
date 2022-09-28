@@ -1,6 +1,6 @@
 const productSchema=require('../model/product')
-
-
+const contactSchema=require('../model/contacts')
+//Products
 exports.newProduct=async(req,res)=>{
     let product=new productSchema(req.body)
     try{
@@ -60,6 +60,79 @@ exports.editProduct=async(req,res)=>{
        Object.assign(product,req.body)
        await product.save();
        res.status(200).json({message:"Product Updated Successfully"})
+    }
+    catch(err){
+        res.status(500).send(err)
+    }
+}
+
+//Contaxts
+
+exports.newContact=async(req,res)=>{
+    let contact=new contactSchema(req.body)
+    try{
+        await contact.save((fail,pass)=>{
+            if(fail){
+                res.status(500).send(fail)
+            }
+            else{
+                res.status(200).json({message:"Contact Created!!"})
+            }
+        })
+        
+    }
+    catch(err){
+        res.status(500).send(er)
+    }
+}
+
+exports.getContacts=async(req,res)=>{
+    try{
+        let contact=await contactSchema.find();
+        res.status(200).json(contact)
+    }
+    catch(err){
+        res.status(500).send(err)
+    }
+}
+
+exports.deleteContact=async(req,res)=>{
+    let contact=await contactSchema.findByIdAndDelete(req.params.id)
+    try{
+        if(contact!==null){
+
+            res.status(200).send({message:"contact deleted sucessfully!!!"})
+        }
+        else{
+            res.status(500).send({message:"Contact not deleted!!"})
+        }
+        
+    }
+    catch(err){
+        res.status(500).send(err)
+    }
+}
+exports.editContact=async(req,res)=>{
+    let contact= await contactSchema.findById(req.params.id)
+    try{
+        if(!contact){
+            res.status(200).json({message:"Contact Not Found"})
+           }
+           Object.assign(contact,req.body)
+           await contact.save();
+           res.status(200).json({message:"Contact Updated Successfully"})
+
+    }
+    catch(err){
+        res.status(500).send(err)
+    }
+}
+
+exports.getContactsById=async(req,res)=>{
+    try{
+        let contact=await contactSchema.findById(req.params.id)
+        res.status(200).json(contact);
+
     }
     catch(err){
         res.status(500).send(err)

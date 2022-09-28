@@ -6,5 +6,10 @@ module.exports=function (app) {
     app.route('/getProduct/:id').get(abc.getProductById);
     app.route('/deleteProduct/:id').delete(abc.deleteProduct);
     app.route('/updateProduct/:id').put(abc.editProduct);
+    app.route('/newContact').post(abc.newContact);
+    app.route('/getContacts').get(abc.getContacts);
+    app.route('/getContactById/:id').get(abc.getContactsById);
+    app.route('/deleteontact/:id').delete(abc.deleteContact);
+    app.route('/updateContact/:id').put(abc.editContact);
 
 };
