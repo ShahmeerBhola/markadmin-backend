@@ -74,18 +74,6 @@ const contacts=new Schema({
         type:String,
         default:"", 
     },  
-      ShippingAddressLine1:{
-        type:String,
-        default:"", 
-    },
-    ShippingAddressLine2:{
-        type:String,
-        default:"", 
-    },
-    ShippingAddressLine3:{
-        type:String,
-        default:"", 
-    },
     BillingCity:{
         type:String,
         default:"", 
