@@ -18,75 +18,7 @@ const contacts=new Schema({
         type:String,
         default:"",
     },
-    POCity:{
-        type:String,
-        default:"",
-    },
-    POZipCode:{
-        type:String,
-        default:"",
-    },
-    POCountry:{
-        type:String,
-        default:"",
-    },
-    POAttentionTo:{
-        type:String,
-        default:"",
-    },
-    POAddressLine1:{
-        type:String,
-        default:"",
-    },
-    POAddressLine2:{
-        type:String,
-        default:"",
-    },
-    POAddressLine3:{
-        type:String,
-        default:"",
-    },
-    POAddressLine4:{
-        type:String,
-        default:"",
-    },
-    PORegion:{
-        type:String,
-        default:"",
-    },
-    SAAttentionTo:{
-        type:String,
-        default:"",
-    },
-    SAAddressLine1:{
-        type:String,
-        default:"",
-    }, 
-    SAAddressLine2:{
-        type:String,
-        default:"",
-    }, 
-    SAAddressLine3:{
-        type:String,
-        default:"",
-    },
-    SAAddressLine4:{
-        type:String,
-        default:"",
-    },
-    SACity:{
-        type:String,
-        default:"",
-    },
-    SARegion:{
-        type:String,
-        default:"",
-    },
-    SAZipCode:{
-        type:String,
-        default:"",
-    },
-    SACountry:{
+    AccountNumber:{
         type:String,
         default:"",
     },
@@ -94,203 +26,67 @@ const contacts=new Schema({
         type:String,
         default:"",
     },
-    FaxNumber:{
+    Mailto:{
         type:String,
         default:"",
     },
-    MobileNumber:{
+    AddressLine1:{
+        type:String,
+        default:"",
+    }, 
+    AddressLine2:{
+        type:String,
+        default:"",
+    }, 
+    AddressLine3:{
         type:String,
         default:"",
     },
-    DDINumber:{
+    City:{
         type:String,
         default:"",
     },
-    SkypeName:{
+    State:{
         type:String,
         default:"",
     },
-    BankAccountName:{
+    Zip:{
         type:String,
         default:"",
     },
-    BankAccountNumber:{
+    Country:{
         type:String,
         default:"",
     },
-    BankAccountParticulars:{
-        type:String,
-        default:"",
-    },
-    TaxNumberType:{
-        type:String,
-        default:"",
-    },
-    TaxNumber:{
-        type:String,
-        default:"",
-    },
-    AccountsReceivableTaxCodeName:{
-        type:String,
-        default:"",
-    },
-    AccountsPayableTaxCodeName:{
-        type:String,
-        default:"",
-    },
-    Website:{
-        type:String,
-        default:"",
-    },
-    LegalName:{
-        type:String,
-        default:"",
-    },
-    Discount:{
-        type:String,
-        default:"",
-    },
-    CompanyNumber:{
-        type:String,
-        default:"",
-    },
-    DueDateBillDay:{
-        type:String,
-        default:"",
-    },
-    DueDateBillTerm:{
-        type:String,
-        default:"",
-    },
-    DueDateSalesDay:{
-        type:String,
-        default:"",
-    },
-    DueDateSalesTerm:{
-        type:String,
-        default:"",
-    },
-    SalesAccount:{
-        type:String,
-        default:"",
-    },
-    PurchasesAccount:{
-        type:String,
-        default:"",
-    },
-    TrackingName1:{
-        type:String,
-        default:"",
-    },
-    SalesTrackingOption1:{
-        type:String,
-        default:"",
-    },
-    PurchasesTrackingOption1:{
-        type:String,
-        default:"",
-    },   
-    TrackingName2:{
-        type:String,
-        default:"",
-    },
-    SalesTrackingOption2:{
-        type:String,
-        default:"",
-    },
-    PurchasesTrackingOption2:{
-        type:String,
-        default:"",
-    },
-    BrandingTheme:{
-        type:String,
-        default:"",
-    },
-    DefaultTaxBills:{
-        type:String,
-        default:"",
-    },
-    DefaultTaxSales:{
-        type:String,
-        default:"",
-    },
-    Person1FirstName:{
-        type:String,
-        default:"",
-    },
-    Person1LastName:{
+    BillingMailTo:{
         type:String,
         default:"", 
     },
-    Person1Email:{
+    BillingAddressLine1:{
         type:String,
         default:"", 
     },
-    Person1IncludeInEmail:{
+    BillingAddressLine2:{
         type:String,
         default:"", 
     },
-    Person2FirstName:{
-        type:String,
-        default:"",
-    },
-    Person2LastName:{
+    BillingAddressLine3:{
         type:String,
         default:"", 
     },
-    Person2Email:{
+    BillingCity:{
         type:String,
         default:"", 
     },
-    Person2IncludeInEmail:{
+    BillingState:{
         type:String,
         default:"", 
     },
-    Person3FirstName:{
-        type:String,
-        default:"",
-    },
-    Person3LastName:{
+    BillingZip:{
         type:String,
         default:"", 
     },
-    Person3Email:{
-        type:String,
-        default:"", 
-    },
-    Person3IncludeInEmail:{
-        type:String,
-        default:"", 
-    },
-    Person4FirstName:{
-        type:String,
-        default:"",
-    },
-    Person4LastName:{
-        type:String,
-        default:"", 
-    },
-    Person4Email:{
-        type:String,
-        default:"", 
-    },
-    Person4IncludeInEmail:{
-        type:String,
-        default:"", 
-    },
-    Person5FirstName:{
-        type:String,
-        default:"",
-    },
-    Person5LastName:{
-        type:String,
-        default:"", 
-    },
-    Person5Email:{
-        type:String,
-        default:"", 
-    },
-    Person5IncludeInEmail:{
+     BillingCountry:{
         type:String,
         default:"", 
     },
