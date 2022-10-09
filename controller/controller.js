@@ -1,5 +1,6 @@
 const productSchema=require('../model/product')
 const contactSchema=require('../model/contacts')
+const orderSchema=require('../model/orders')
 //Products
 exports.newProduct=async(req,res)=>{
     let product=new productSchema(req.body)
@@ -133,6 +134,25 @@ exports.getContactsById=async(req,res)=>{
         let contact=await contactSchema.findById(req.params.id)
         res.status(200).json(contact);
 
+    }
+    catch(err){
+        res.status(500).send(err)
+    }
+}
+
+//chocolate order
+
+exports.newChocolateOrder=async(req,res)=>{
+    let order= new orderSchema(req.body);
+    try{
+        await order.save((fail,pass)=>{
+            if(fail){
+                res.status(500).send(fail)
+            }
+            else{
+                res.status(200).json({msg:"Order Created !!!"})
+            }
+        })
     }
     catch(err){
         res.status(500).send(err)
