@@ -3,8 +3,8 @@ const Schema=mongoose.Schema;
 
 const orders=new Schema({
     ContactName:{
-        type : mongoose.Schema.Types.ObjectId, 
-        ref: 'contacts'
+        type:String,
+        default:""
     },
     P12_Break_Up_Bar:{
         type:Number,
@@ -31,7 +31,7 @@ const orders=new Schema({
         default:""
     },
     Customer_Material_Weight:{
-        type:Number,
+        type:String,
         default:""
     },
     active_ingredient:{

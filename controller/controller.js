@@ -158,3 +158,13 @@ exports.newChocolateOrder=async(req,res)=>{
         res.status(500).send(err)
     }
 }
+
+exports.getChocolateOrder=async(req,res)=>{
+    try{
+        let order= await orderSchema.find();
+        res.status(200).json(order);
+    }
+    catch(err){
+        res.status(500).send(err)
+    }
+}
