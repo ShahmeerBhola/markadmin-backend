@@ -184,3 +184,13 @@ exports.deleteChocolateOrder=async(req,res)=>{
         res.status(500).send(err)
     }
 }
+
+exports.getChocolateOrderById=async(req,res)=>{
+    try{
+        let order= await orderSchema.findById(req.params.id)
+       res.status(200).json(order)
+    }
+    catch(err){
+        res.status(500).send(err)
+    }
+}
