@@ -161,7 +161,7 @@ exports.newChocolateOrder=async(req,res)=>{
 
 exports.getChocolateOrder=async(req,res)=>{
     try{
-        let order= await orderSchema.find();
+        let order= await orderSchema.find().populate('ContactName');
         res.status(200).json(order);
     }
     catch(err){

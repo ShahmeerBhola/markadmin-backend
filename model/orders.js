@@ -3,8 +3,8 @@ const Schema=mongoose.Schema;
 
 const orders=new Schema({
     ContactName:{
-        type:String,
-        default:""
+        type:mongoose.Schema.Types.ObjectId,
+        ref:"contacts",
     },
     P12_Break_Up_Bar:{
         type:Number,
