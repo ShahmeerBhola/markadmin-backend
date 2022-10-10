@@ -168,3 +168,19 @@ exports.getChocolateOrder=async(req,res)=>{
         res.status(500).send(err)
     }
 }
+exports.deleteChocolateOrder=async(req,res)=>{
+    let order= await orderSchema.findByIdAndDelete(req.params.id)
+    try{
+        if(order!==null){
+
+            res.status(200).send({message:"order deleted sucessfully!!!"})
+        }
+        else{
+            res.status(500).send({message:"order not deleted!!"})
+        }
+        
+    }
+    catch(err){
+        res.status(500).send(err)
+    }
+}

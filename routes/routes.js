@@ -13,5 +13,6 @@ module.exports=function (app) {
     app.route('/updateContact/:id').put(abc.editContact);
     app.route('/newChocolateOrder').post(abc.newChocolateOrder);
     app.route('/getChocolateOrder').get(abc.getChocolateOrder);
+    app.route('/deleteChocolateOrder/:id').delete(abc.deleteChocolateOrder);
 
 };
