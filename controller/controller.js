@@ -187,7 +187,7 @@ exports.deleteChocolateOrder=async(req,res)=>{
 
 exports.getChocolateOrderById=async(req,res)=>{
     try{
-        let order= await orderSchema.findById(req.params.id)
+        let order= await orderSchema.findById(req.params.id).populate('ContactName')
        res.status(200).json(order)
     }
     catch(err){
