@@ -41,7 +41,12 @@ const orders=new Schema({
     totalBar:{
         type:Number,
         default:""
-    },flavorss:[{
+    },
+     status:{
+        type:String,
+        default:""
+    },
+    flavorss:[{
         name:{
             type:String,
             default:""
