@@ -30,6 +30,10 @@ const orders=new Schema({
         type:Number,
         default:""
     },
+    types_Of_Bar:{
+        type:String,
+        default:""
+    },
     Bar_type:{
         type:String,
         default:""
