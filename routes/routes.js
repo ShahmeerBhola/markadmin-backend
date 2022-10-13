@@ -15,5 +15,6 @@ module.exports=function (app) {
     app.route('/getChocolateOrder').get(abc.getChocolateOrder);
     app.route('/deleteChocolateOrder/:id').delete(abc.deleteChocolateOrder);
     app.route('/getChocolateOrderById/:id').get(abc.getChocolateOrderById);
+    app.route('/editChocolateOrderById/:id').put(abc.editChocolateOrderById);
 
 };

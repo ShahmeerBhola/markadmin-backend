@@ -194,3 +194,18 @@ exports.getChocolateOrderById=async(req,res)=>{
         res.status(500).send(err)
     }
 }
+exports.editChocolateOrderById=async(req,res)=>{
+    let order=await orderSchema.findById(req.params.id)
+    try{
+        if(!order){
+            res.status(500).json({msg:"Order Not Found!!!"})
+        }
+        Object.assign(order,req.body);
+        await order.save();
+        res.status(200).json({msg:"Order Updated Successfully"})
+
+    }
+    catch(err){
+        res.status(500).send(err);
+    }
+}

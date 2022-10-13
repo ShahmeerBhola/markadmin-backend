@@ -6,6 +6,10 @@ const orders=new Schema({
         type:mongoose.Schema.Types.ObjectId,
         ref:"contacts",
     },
+    date:{
+        type:String,
+        default:"",
+    },
     P12_Break_Up_Bar:{
         type:Number,
         default:""
