@@ -10,6 +10,10 @@ const orders=new Schema({
         type:String,
         default:"",
     },
+    Customer_Provider:{
+        type:String,
+        default:"",
+    },
     P12_Break_Up_Bar:{
         type:Number,
         default:""
