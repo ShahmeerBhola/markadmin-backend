@@ -63,6 +63,10 @@ const orders=new Schema({
             type:String,
             default:""
         },
+        active:{
+            type:Number,
+            default:"",
+        },
         price:{
             type:Number,
             default:""
