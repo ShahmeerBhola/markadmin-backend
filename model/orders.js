@@ -72,7 +72,7 @@ const orders=new Schema({
             default:""
         },
         amount:{
-            type:Number,
+            type:String,
             default:""
         },
     }]
