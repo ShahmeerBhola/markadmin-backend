@@ -58,6 +58,10 @@ const orders=new Schema({
         type:String,
         default:""
     },
+    packaging:{
+        type:String,
+        default:""
+    },
     flavorss:[{
         name:{
             type:String,
