@@ -1,6 +1,7 @@
 const productSchema=require('../model/product')
 const contactSchema=require('../model/contacts')
 const orderSchema=require('../model/orders')
+const assemblySchema=require('../model/assembly')
 //Products
 exports.newProduct=async(req,res)=>{
     let product=new productSchema(req.body)
@@ -207,5 +208,33 @@ exports.editChocolateOrderById=async(req,res)=>{
     }
     catch(err){
         res.status(500).send(err);
+    }
+}
+
+//assembly
+exports.addAssembly=async(req,res)=>{
+    let assembly=new assemblySchema(req.body)
+    try{
+        await assembly.save((fail,pass)=>{
+            if(fail){
+                res.status(500).send(fail)
+            }
+            else{
+                res.status(200).json({msg:"Assembly Created !!!"})
+            }
+        })
+    }
+    catch(err){
+        res.status(500).send(err)
+    }
+}
+
+exports.getAssembly=async(req,res)=>{
+    try{
+        let assembly=await assemblySchema.find();
+        res.status(200).json(assembly)
+    }
+    catch(err){
+        res.status(500).send(err)
     }
 }
