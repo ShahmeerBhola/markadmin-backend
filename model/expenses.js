@@ -1,15 +1,7 @@
 const mongoose=require('mongoose');
 const Schema=mongoose.Schema;
-const inventory=new Schema({
+const expenses=new Schema({
     data:[{
-    //    name:{
-    //     type:String,
-    //     default:""
-    //     },
-    //     amount:{
-    //         type:String,
-    //         default:""
-    //     },
     quantity:{
         type: Number,
         default:"",
@@ -21,11 +13,19 @@ const inventory=new Schema({
         type: Number,
         default:"",
     },
+    vendor:{
+        type:String,
+        default:"",
+    },
     name:{
         type:String,
         default:"",
     },price_per_gram:{
         type: Number,
+        default:"",
+    },
+    isIngredient:{
+        type:Boolean,
         default:"",
     },
     isEditing:{
@@ -34,4 +34,4 @@ const inventory=new Schema({
     }
     }]
 })
-module.exports=mongoose.model('inventory',inventory)
+module.exports=mongoose.model('expenses',expenses)

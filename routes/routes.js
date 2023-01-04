@@ -18,5 +18,9 @@ module.exports=function (app) {
     app.route('/editChocolateOrderById/:id').put(abc.editChocolateOrderById);
     app.route('/addAssembly').post(abc.addAssembly);
     app.route('/getAssembly').get(abc.getAssembly);
+    app.route('/addInventory').post(abc.addInventory);
+    app.route('/getInventory').get(abc.getInventory);
+    app.route('/addRecipe').post(abc.addRecipe);
+
 
 };
