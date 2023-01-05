@@ -20,6 +20,8 @@ module.exports=function (app) {
     app.route('/getAssembly').get(abc.getAssembly);
     app.route('/addInventory').post(abc.addInventory);
     app.route('/getInventory').get(abc.getInventory);
+    app.route('/addExpenses').post(abc.addExpenses);
+    app.route('/getExpenses').get(abc.getExpenses);
     app.route('/addRecipe').post(abc.addRecipe);
 
 
