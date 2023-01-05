@@ -23,6 +23,8 @@ module.exports=function (app) {
     app.route('/addExpenses').post(abc.addExpenses);
     app.route('/getExpenses').get(abc.getExpenses);
     app.route('/addRecipe').post(abc.addRecipe);
+    app.route('/getRecipe').get(abc.getRecipe);
+
 
 
 };

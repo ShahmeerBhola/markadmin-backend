@@ -275,3 +275,11 @@ exports.addRecipe = async (req, res) => {
     res.status(500).send(err);
   }
 };
+exports.getRecipe = async (req, res) => {
+    try {
+      let recipe = await recipeSchema.find();
+      res.status(200).json(recipe);
+    } catch (err) {
+      res.status(500).send(err);
+    }
+  };
