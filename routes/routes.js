@@ -24,7 +24,8 @@ module.exports=function (app) {
     app.route('/getExpenses').get(abc.getExpenses);
     app.route('/addRecipe').post(abc.addRecipe);
     app.route('/getRecipe').get(abc.getRecipe);
-
+    app.route('/addIngredient').post(abc.addIngredient);
+    app.route('/getIngredient').get(abc.getIngredient);
 
 
 };

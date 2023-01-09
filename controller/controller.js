@@ -5,6 +5,7 @@ const assemblySchema = require("../model/assembly");
 const inventorySchema = require("../model/inventory");
 const expensesSchema = require("../model/expenses");
 const recipeSchema = require("../model/recipe");
+const ingredientSchema = require("../model/ingredient");
 //Products
 exports.newProduct = async (req, res) => {
   let product = new productSchema(req.body);
@@ -276,10 +277,33 @@ exports.addRecipe = async (req, res) => {
   }
 };
 exports.getRecipe = async (req, res) => {
-    try {
-      let recipe = await recipeSchema.find();
-      res.status(200).json(recipe);
-    } catch (err) {
-      res.status(500).send(err);
-    }
-  };
+  try {
+    let recipe = await recipeSchema.find();
+    res.status(200).json(recipe);
+  } catch (err) {
+    res.status(500).send(err);
+  }
+};
+
+exports.addIngredient = async (req, res) => {
+  let ingredient = new ingredientSchema(req.body);
+  try {
+    await ingredient.save((fail, pass) => {
+      if (fail) {
+        res.status(500).send(fail);
+      } else {
+        res.status(200).json({ msg: "ingredient Created !!!" });
+      }
+    });
+  } catch (err) {
+    res.status(500).send(err);
+  }
+};
+exports.getIngredient = async (req, res) => {
+  try {
+    let ingredient = await ingredientSchema.find();
+    res.status(200).json(ingredient);
+  } catch (err) {
+    res.status(500).send(err);
+  }
+};
