@@ -212,6 +212,31 @@ exports.getAssembly = async (req, res) => {
     res.status(500).send(err);
   }
 };
+exports.editAssemblyById = async (req, res) => {
+  let assembly = await assemblySchema.findById(req.body._id);
+  try {
+    if (!assembly) {
+      res.status(500).json({ msg: "Assembly Not Found!!!" });
+    }
+    Object.assign(assembly, req.body);
+    await assembly.save();
+    res.status(200).json({ msg: "Assembly Updated Successfully" });
+  } catch (err) {
+    res.status(500).send(err);
+  }
+};
+exports.deleteAssemblyById = async (req, res) => {
+  try {
+    let assembly = await assemblySchema.findByIdAndRemove(req.body._id);
+    if (assembly !== null) {
+      res.status(200).send({ message: "Assembly deleted sucessfully!!!" });
+    } else {
+      res.status(500).send({ message: "Assembly not deleted!!" });
+    }
+  } catch (err) {
+    res.status(500).send(err);
+  }
+};
 
 //inventory
 exports.addInventory = async (req, res) => {
@@ -237,6 +262,32 @@ exports.getInventory = async (req, res) => {
     res.status(500).send(err);
   }
 };
+exports.editInventoryById = async (req, res) => {
+  let inventory = await inventorySchema.findById(req.body._id);
+  try {
+    if (!inventory) {
+      res.status(500).json({ msg: "Inventory Not Found!!!" });
+    }
+    Object.assign(inventory, req.body);
+    await inventory.save();
+    res.status(200).json({ msg: "Inventory Updated Successfully" });
+  } catch (err) {
+    res.status(500).send(err);
+  }
+};
+exports.deleteInventoryById = async (req, res) => {
+  try {
+    let inventory = await inventorySchema.findByIdAndRemove(req.body._id);
+    if (inventory !== null) {
+      res.status(200).send({ message: "inventory deleted sucessfully!!!" });
+    } else {
+      res.status(500).send({ message: "inventory not deleted!!" });
+    }
+  } catch (err) {
+    res.status(500).send(err);
+  }
+};
+
 //expenses
 exports.addExpenses = async (req, res) => {
   let expenses = new expensesSchema(req.body);
@@ -257,6 +308,31 @@ exports.getExpenses = async (req, res) => {
   try {
     let expenses = await expensesSchema.find();
     res.status(200).json(expenses);
+  } catch (err) {
+    res.status(500).send(err);
+  }
+};
+exports.editExpensesById = async (req, res) => {
+  let expenses = await expensesSchema.findById(req.body._id);
+  try {
+    if (!expenses) {
+      res.status(500).json({ msg: "Expenses Not Found!!!" });
+    }
+    Object.assign(expenses, req.body);
+    await expenses.save();
+    res.status(200).json({ msg: "Expenses Updated Successfully" });
+  } catch (err) {
+    res.status(500).send(err);
+  }
+};
+exports.deleteExpensesById = async (req, res) => {
+  try {
+    let expenses = await expensesSchema.findByIdAndRemove(req.body._id);
+    if (expenses !== null) {
+      res.status(200).send({ message: "Expenses deleted sucessfully!!!" });
+    } else {
+      res.status(500).send({ message: "Expenses not deleted!!" });
+    }
   } catch (err) {
     res.status(500).send(err);
   }

@@ -1,7 +1,7 @@
-const mongoose=require('mongoose');
-const Schema=mongoose.Schema;
-const inventory=new Schema({
-    data:[{
+const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
+const inventory = new Schema(
+  {
     //    name:{
     //     type:String,
     //     default:""
@@ -10,28 +10,30 @@ const inventory=new Schema({
     //         type:String,
     //         default:""
     //     },
-    quantity:{
-        type: Number,
-        default:"",
+    quantity: {
+      type: Number,
+      default: "",
     },
-    quantity_Type:{
-        type:String,
-        default:"",
-    },price:{
-        type: Number,
-        default:"",
+    quantity_Type: {
+      type: String,
+      default: "",
     },
-    name:{
-        type:String,
-        default:"",
-    },price_per_gram:{
-        type: Number,
-        default:"",
+    price: {
+      type: Number,
+      default: "",
     },
-    isEditing:{
-        type:Boolean,
-        default:"",
-    }
-    }]
-})
-module.exports=mongoose.model('inventory',inventory)
+    name: {
+      type: String,
+      default: "",
+    },
+    price_per_gram: {
+      type: Number,
+      default: "",
+    },
+    isEditing: {
+      type: Boolean,
+      default: false,
+    },
+  },
+);
+module.exports = mongoose.model("inventory", inventory);
