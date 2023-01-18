@@ -30,6 +30,8 @@ module.exports = function (app) {
   app.route("/deleteExpensesById").post(abc.deleteExpensesById);
   app.route("/addRecipe").post(abc.addRecipe);
   app.route("/getRecipe").get(abc.getRecipe);
+  app.route("/deleteRecipeById").post(abc.deleteRecipeById);
+  app.route("/getRecipeById/:id").post(abc.getRecipeById);
   app.route("/addIngredient").post(abc.addIngredient);
   app.route("/getIngredient").get(abc.getIngredient);
 };

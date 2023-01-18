@@ -196,7 +196,7 @@ exports.addAssembly = async (req, res) => {
       if (fail) {
         res.status(500).send(fail);
       } else {
-        res.status(200).json({ msg: "Assembly Created !!!" });
+        res.status(200).json(pass);
       }
     });
   } catch (err) {
@@ -246,7 +246,7 @@ exports.addInventory = async (req, res) => {
       if (fail) {
         res.status(500).send(fail);
       } else {
-        res.status(200).json({ msg: "Inventory Created !!!" });
+        res.status(200).json(pass);
       }
     });
   } catch (err) {
@@ -360,6 +360,28 @@ exports.getRecipe = async (req, res) => {
     res.status(500).send(err);
   }
 };
+
+exports.deleteRecipeById = async (req, res) => {
+  try {
+    let recipe = await recipeSchema.findByIdAndRemove(req.body._id);
+    if (recipe !== null) {
+      res.status(200).send({ message: "Recipe deleted sucessfully!!!" });
+    } else {
+      res.status(500).send({ message: "Recipe not deleted!!" });
+    }
+  } catch (err) {
+    res.status(500).send(err);
+  }
+};
+exports.getRecipeById = async (req, res) => {
+  try {
+    let recipe = await recipeSchema.findById(req.params.id);
+    res.status(200).json(recipe);
+  } catch (err) {
+    res.status(500).send(err);
+  }
+};
+//Ingredient
 
 exports.addIngredient = async (req, res) => {
   let ingredient = new ingredientSchema(req.body);

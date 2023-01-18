@@ -15,15 +15,11 @@ const recipe=new Schema({
             type:String,
             default:""
         },
-        active:{
+        quantity:{
             type:Number,
             default:"",
         },
-        price:{
-            type:Number,
-            default:""
-        },
-        amount:{
+        quantity_Type:{
             type:String,
             default:""
         },
