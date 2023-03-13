@@ -240,23 +240,44 @@ exports.deleteAssemblyById = async (req, res) => {
 
 //inventory
 exports.addInventory = async (req, res) => {
-  let inventory = new inventorySchema(req.body);
-  try {
-    await inventory.save((fail, pass) => {
-      if (fail) {
-        res.status(500).send(fail);
-      } else {
-        res.status(200).json(pass);
-      }
-    });
-  } catch (err) {
-    res.status(500).send(err);
+  console.log(`in add inventory`)
+  
+  let checkInventory = await inventorySchema.findById(req.body._id);
+  if (checkInventory) {
+    try {
+      console.log(`inventory before update`,checkInventory)
+      Object.keys(req.body).map((item)=>{
+        if(item === "quantity"){
+          checkInventory[item] = +checkInventory[item] + +req.body[item]
+        }else {
+          checkInventory[item] = req.body[item]
+        }
+      })
+      console.log(`inventory after update`,checkInventory)
+      await checkInventory.save();
+      return res.status(200).json({ msg: "Inventory Updated Successfully", obj:checkInventory });
+    } catch (err) {
+      return res.status(500).send(err);
+    }
+  } else {
+    let inventory = new inventorySchema(req.body);
+    try {
+      await inventory.save((fail, pass) => {
+        if (fail) {
+          return res.status(500).send(fail);
+        } else {
+          return res.status(200).json(pass);
+        }
+      });
+    } catch (err) {
+      return res.status(500).send(err);
+    }
   }
 };
 
 exports.getInventory = async (req, res) => {
   try {
-    let inventory = await inventorySchema.find();
+    let inventory = await inventorySchema.find().sort('-updatedAt');
     res.status(200).json(inventory);
   } catch (err) {
     res.status(500).send(err);
@@ -266,11 +287,12 @@ exports.editInventoryById = async (req, res) => {
   let inventory = await inventorySchema.findById(req.body._id);
   try {
     if (!inventory) {
-      res.status(500).json({ msg: "Inventory Not Found!!!" });
+      return res.status(500).json({ msg: "Inventory Not Found!!!" });
     }
-    Object.assign(inventory, req.body);
+    Object.keys(req.body).map((item)=>inventory[item]=req.body[item])
+    // Object.assign(inventory, req.body);
     await inventory.save();
-    res.status(200).json({ msg: "Inventory Updated Successfully" });
+    res.status(200).json({ msg: "Inventory Updated Successfully" , obj :inventory });
   } catch (err) {
     res.status(500).send(err);
   }
